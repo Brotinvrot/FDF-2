@@ -6,7 +6,7 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/18 20:55:04 by drabadan          #+#    #+#             */
-/*   Updated: 2024/10/30 16:58:18 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/11/06 14:12:14 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,31 +92,47 @@ void	draw_line(void *mlx, void *window, t_data p1, t_data p2)
 
 int	main(int argc, char **argv)
 {
-	void	*mlx;
-	void	*window;
-	t_data p1;
-	t_data p2;
-
-	mlx = mlx_init();
-	if (mlx == NULL)
+	if (argc != 2)
+	{
+		write(2, "Do this: ./fdf <filename>\n", 26);
 		return (1);
-	window = mlx_new_window(mlx, 800, 600, "FDF_drabadan");
-	if (window == NULL)
-		return (1);
-	mlx_key_hook (window, key_hook, NULL);
-	p1.map_size_x = 100;
-	p1.map_size_y = 100;
-	p2.map_size_x = 500;
-	p2.map_size_y = 300;
-	draw_line(mlx, window, p1, p2);
-	p1.map_size_x = 200;
-	p1.map_size_y = 400;
-	p2.map_size_x = 600;
-	p2.map_size_y = 100;
-	draw_line(mlx, window, p1, p2);
-	mlx_loop (mlx);
+	}
+	first_step(argv[1]);
 	return (0);
 }
+
+
+
+
+
+
+
+
+
+
+	// void	*mlx;
+	// void	*window;
+	// t_data p1;
+	// t_data p2;
+
+	// mlx = mlx_init();
+	// if (mlx == NULL)
+	// 	return (1);
+	// window = mlx_new_window(mlx, 800, 600, "FDF_drabadan");
+	// if (window == NULL)
+	// 	return (1);
+	// mlx_key_hook (window, key_hook, NULL);
+	// p1.map_size_x = 100;
+	// p1.map_size_y = 100;
+	// p2.map_size_x = 500;
+	// p2.map_size_y = 300;
+	// draw_line(mlx, window, p1, p2);
+	// p1.map_size_x = 200;
+	// p1.map_size_y = 400;
+	// p2.map_size_x = 600;
+	// p2.map_size_y = 100;
+	// draw_line(mlx, window, p1, p2);
+	// mlx_loop (mlx);
 
 // #include <mlx.h>
 // #include <stdlib.h>
