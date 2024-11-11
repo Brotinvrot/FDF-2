@@ -6,11 +6,12 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 18:18:35 by drabadan          #+#    #+#             */
-/*   Updated: 2024/11/11 12:07:39 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/11/11 16:47:08 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "fdf.h"
+
 int	comma(char *str)
 {
 	while (*str)
@@ -22,9 +23,15 @@ int	comma(char *str)
 	return (1);
 }
 
-void	add_color(char *str, int color)
+void	add_color(char *str, int *color)
 {
-	
+	char	**array;
+
+	array = ft_split(str, ',');
+	*color = ft_atoi_hex(array[1]);
+	free(array[0]);
+	free(array[1]);
+	free(array);
 }
 
 void	cor_filling_2(char **array, t_Pixel **matrix, int y)
@@ -35,11 +42,11 @@ void	cor_filling_2(char **array, t_Pixel **matrix, int y)
 	while (array[i] != NULL)
 	{
 		if (comma(array[i]) == 0)
-			add_color(array[i], matrix[y][i].color);
+			add_color(array[i], &matrix[y][i].color);
 		matrix[y][i].y = y;
 		matrix[y][i].x = i;
 		matrix[y][i].z = ft_atoi(array[i]);
-		//printf("x = %d y = %d z = %d\n", matrix[y][i].x, matrix[y][i].y, matrix[y][i].z);
+		//printf("x = %d y = %d z = %d color = %d\n", matrix[y][i].x, matrix[y][i].y, matrix[y][i].z, matrix[y][i].color);
 		free(array[i]);
 		i++;
 	}
@@ -61,7 +68,7 @@ void	cor_filling(char *str, t_fdf *data)
 		if (line == NULL)
 		{
 			free(line);
-			break;
+			break ;
 		}
 		array = ft_split(line, ' ');
 		free(line);
