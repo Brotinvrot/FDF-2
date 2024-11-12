@@ -6,7 +6,7 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 16:45:57 by drabadan          #+#    #+#             */
-/*   Updated: 2024/11/11 08:46:58 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/11/12 10:11:20 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,18 @@ void	error_messeg(void)
 	exit (1);
 }
 
+// void	check_map(char *str)
+// {
+// 	int		i;
+// 	char	**array;
+
+// 	i = 0;
+// 	array = ft_split(str, ' ');
+// 	while(array[i] && array[i] != NULL)
+// 		i++;
+// 	printf("i = %d\n", i);
+// }
+
 int	get_map_height(int fd)
 {
 	int		size;
@@ -28,6 +40,7 @@ int	get_map_height(int fd)
 	while (line)
 	{
 		line = get_next_line(fd);
+		//check_map(line);
 		free(line);
 		size++;
 	}
@@ -54,8 +67,8 @@ int	get_map_width(int fd)
 		free(array[i]);
 		i++;
 	}
-	free(line);
 	free(array);
+	free(line);
 	return (size);
 }
 
@@ -81,8 +94,8 @@ void	first_step(char *str, t_fdf *data)
 		error_messeg();
 	data -> map_width = get_map_width(fd);
 	data -> map_height = get_map_height(fd);
+	printf("width = %d\nheight = %d\n", data -> map_width, data -> map_height);
 	close(fd);
 	alloc_mem(data);
 	cor_filling(str, data);
-	//printf("width = %d\nheight = %d\n", data -> map_width, data -> map_height);
 }
