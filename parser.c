@@ -6,7 +6,7 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 16:45:57 by drabadan          #+#    #+#             */
-/*   Updated: 2024/11/12 13:30:13 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/11/18 17:52:21 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,6 @@ int	get_map_height(int fd)
 	while (line)
 	{
 		line = get_next_line(fd);
-		//check_map(line);
 		free(line);
 		size++;
 	}
@@ -87,15 +86,3 @@ void	first_step(char *str, t_fdf *data)
 	cor_filling(str, data);
 	second_step(data);
 }
-
-// void	check_map(char *str)
-// {
-// 	int		i;
-// 	char	**array;
-
-// 	i = 0;
-// 	array = ft_split(str, ' ');
-// 	while(array[i] && array[i] != NULL)
-// 		i++;
-// 	printf("i = %d\n", i);
-// }

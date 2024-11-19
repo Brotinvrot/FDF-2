@@ -6,7 +6,7 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 14:20:42 by drabadan          #+#    #+#             */
-/*   Updated: 2024/11/18 13:52:36 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/11/18 20:58:11 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,5 +51,7 @@ void	first_step(char *str, t_fdf *data);
 void	cor_filling(char *str, t_fdf *data);
 void	second_step(t_fdf *data);
 int		ft_abs(int first, int second);
+void	my_mlx_pixel_put(t_fdf *data, int x, int y, int color);
+void	bresenham(t_Pixel p1, t_Pixel p2, t_fdf *data);
 
 #endif

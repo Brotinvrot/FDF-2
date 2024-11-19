@@ -6,7 +6,7 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 18:18:35 by drabadan          #+#    #+#             */
-/*   Updated: 2024/11/12 11:08:39 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/11/18 20:52:45 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ void	add_color(char *str, int *color)
 	array = ft_split(str, ',');
 	*color = ft_atoi_hex(array[1]);
 	i = 0;
-	while(array[i])
+	while (array[i])
 	{
 		free(array[i]);
 		i++;
@@ -48,6 +48,8 @@ void	cor_filling_2(char **array, t_fdf *data, int y)
 	{
 		if (comma(array[i]) == 0)
 			add_color(array[i], &data -> matrix[y][i].color);
+		else
+			data -> matrix[y][i].color = 0x449e48;
 		data -> matrix[y][i].y = y;
 		data -> matrix[y][i].x = i;
 		data -> matrix[y][i].z = ft_atoi(array[i]);
