@@ -6,7 +6,7 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 14:20:42 by drabadan          #+#    #+#             */
-/*   Updated: 2024/11/18 20:58:11 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/11/23 14:10:04 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,10 @@
 
 typedef struct s_pixel_data
 {
-	int	x;
-	int	y;
-	int	z;
-	int	color;
+	float	x;
+	float	y;
+	int		z;
+	int		color;
 }	t_Pixel;
 
 typedef struct s_fdf
@@ -35,7 +35,6 @@ typedef struct s_fdf
 	int		offset_y;			// Смещение по У, что бы отрисовывать по центру
 	int		pixel_size;			// Колличество пикселей между точками
 	t_Pixel	**matrix;			// Структура координат с их значениями.
-
 	int		window_height;
 	int		window_width;
 	void	*win_ptr;			// Указатель на инициализацию окна
@@ -45,6 +44,8 @@ typedef struct s_fdf
 	int		bits_per_pixel;
 	int		line_length;
 	int		endian;
+	int		scale_z;
+
 }	t_fdf;
 
 void	first_step(char *str, t_fdf *data);
@@ -52,6 +53,8 @@ void	cor_filling(char *str, t_fdf *data);
 void	second_step(t_fdf *data);
 int		ft_abs(int first, int second);
 void	my_mlx_pixel_put(t_fdf *data, int x, int y, int color);
-void	bresenham(t_Pixel p1, t_Pixel p2, t_fdf *data);
+void	draw(t_fdf *data);
+int		ft_abs(int first, int second);
+int	che_col(t_Pixel pixel1, t_Pixel pixel2);
 
 #endif
