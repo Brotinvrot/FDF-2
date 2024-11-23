@@ -6,7 +6,7 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/18 13:52:07 by drabadan          #+#    #+#             */
-/*   Updated: 2024/11/23 14:10:33 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/11/23 16:35:17 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ void	isometric(t_Pixel *pixel, t_fdf *data)
 	pixel -> x = (prev_x - prev_y) * cos(0.523599);
 	pixel -> y = (prev_x + prev_y) * sin(0.3) - pixel -> z * data -> scale_z;
 }
-
 
 void	bresenham(t_Pixel p1, t_Pixel p2, t_fdf *data)
 {
