@@ -8,7 +8,7 @@ INCLUDES = -I $(LIBFT_DIR)
 
 LDFLAGS = ./minilibx-linux/libmlx.a -lXext -lX11 -lm
 
-SRC = main.c parser.c filling.c window.c draw.c support_draw.c
+SRC = main.c parser.c filling.c window.c draw.c support_draw.c rotate.c
 OBJ = $(SRC:.c=.o)
 
 all : $(LIBFT) $(NAME)
