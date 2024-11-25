@@ -6,7 +6,7 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/12 13:28:01 by drabadan          #+#    #+#             */
-/*   Updated: 2024/11/25 18:35:15 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/11/25 18:44:25 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ void	key_press_next_2(int keycode, t_fdf *data)
 	if (keycode == 65364 && data -> projection == 0)
 	{
 		data -> offset_y += 10;
-		data -> offset_x += 10;	
+		data -> offset_x += 10;
 	}
 	else if (keycode == 65362 && data -> projection == 0)
 	{
@@ -83,7 +83,6 @@ void	key_press_next(int keycode, t_fdf *data)
 
 int	key_press(int keycode, t_fdf *data)
 {
-	printf ("keycode = %d\n", keycode);
 	if (keycode == 65307)
 		close_window(data);
 	else if (keycode == 65364 && data -> projection == 1)
@@ -106,7 +105,8 @@ int	key_press(int keycode, t_fdf *data)
 	data -> addr = mlx_get_data_addr(data -> img_ptr, &data -> bits_per_pixel, \
 		&data -> line_length, &data -> endian);
 	draw(data);
-	mlx_put_image_to_window(data->mlx_ptr, data->win_ptr, data->img_ptr, 0, 0);
+	mlx_put_image_to_window(data -> mlx_ptr, data -> win_ptr, \
+		data -> img_ptr, 0, 0);
 	return (0);
 }
 

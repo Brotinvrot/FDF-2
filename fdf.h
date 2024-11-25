@@ -6,7 +6,7 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 14:20:42 by drabadan          #+#    #+#             */
-/*   Updated: 2024/11/24 15:27:46 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/11/25 19:03:01 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@
 # include "./Libft/src/libft.h"
 # include <math.h>
 # include <mlx.h>
-
-# include <stdio.h>// Удалить ОБЯЗАТЕЛЬНО
 
 typedef struct s_pixel_data
 {
@@ -55,21 +53,10 @@ void	cor_filling(char *str, t_fdf *data);
 void	second_step(t_fdf *data);
 void	rotate_z(t_Pixel *point, float angle);
 void	apply_rotation(t_Pixel *point, t_fdf *data);
-int		who_max(int first, int second);
-int		ft_abs(int first, int second);
 void	my_mlx_pixel_put(t_fdf *data, int x, int y, int color);
 void	draw(t_fdf *data);
+int		who_max(int first, int second);
 int		ft_abs(int first, int second);
 int		che_col(t_Pixel pixel1, t_Pixel pixel2);
 
 #endif
-
-/*
-int interpolate_color(int start_color, int end_color, float percentage)
-{
-	int red = ((start_color >> 16) & 0xFF) + percentage * (((end_color >> 16) & 0xFF) - ((start_color >> 16) & 0xFF));
-	int green = ((start_color >> 8) & 0xFF) + percentage * (((end_color >> 8) & 0xFF) - ((start_color >> 8) & 0xFF));
-	int blue = (start_color & 0xFF) + percentage * ((end_color & 0xFF) - (start_color & 0xFF));
-	return ((red << 16) | (green << 8) | blue);
-}
-*/
