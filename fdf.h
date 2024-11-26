@@ -6,7 +6,7 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 14:20:42 by drabadan          #+#    #+#             */
-/*   Updated: 2024/11/25 19:03:01 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/11/26 17:59:18 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include "./Libft/src/libft.h"
 # include <math.h>
 # include <mlx.h>
+# include <stdio.h>
 
 typedef struct s_pixel_data
 {
@@ -55,6 +56,7 @@ void	rotate_z(t_Pixel *point, float angle);
 void	apply_rotation(t_Pixel *point, t_fdf *data);
 void	my_mlx_pixel_put(t_fdf *data, int x, int y, int color);
 void	draw(t_fdf *data);
+int		line_check(char *line);
 int		who_max(int first, int second);
 int		ft_abs(int first, int second);
 int		che_col(t_Pixel pixel1, t_Pixel pixel2);
