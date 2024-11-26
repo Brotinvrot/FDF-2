@@ -6,7 +6,7 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 14:20:42 by drabadan          #+#    #+#             */
-/*   Updated: 2024/11/26 17:59:18 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/11/26 18:40:17 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include "./Libft/src/libft.h"
 # include <math.h>
 # include <mlx.h>
-# include <stdio.h>
 
 typedef struct s_pixel_data
 {

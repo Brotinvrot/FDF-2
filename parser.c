@@ -6,7 +6,7 @@
 /*   By: drabadan <drabadan@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/30 16:45:57 by drabadan          #+#    #+#             */
-/*   Updated: 2024/11/26 18:31:13 by drabadan         ###   ########.fr       */
+/*   Updated: 2024/11/26 18:39:36 by drabadan         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	get_map_width(int fd)
 	i = 0;
 	line = get_next_line(fd);
 	if (!line)
-		return(0);
+		return (0);
 	array = ft_split(line, ' ');
 	while (array[i])
 	{
