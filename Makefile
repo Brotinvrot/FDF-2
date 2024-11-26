@@ -4,17 +4,22 @@ CFLAGS = -Wall -Wextra -Werror -I includes -g
 
 LIBFT_DIR = ./Libft
 LIBFT = $(LIBFT_DIR)/libft.a
-INCLUDES = -I $(LIBFT_DIR)
+MLX_DIR = ./minilibx-linux
+MLX = $(MLX_DIR)/libmlx.a
+INCLUDES = -I $(LIBFT_DIR) -I $(MLX_DIR)
 
-LDFLAGS = ./minilibx-linux/libmlx.a -lXext -lX11 -lm
+LDFLAGS = $(MLX) -lXext -lX11 -lm
 
 SRC = main.c parser.c filling.c window.c draw.c support_draw.c rotate.c
 OBJ = $(SRC:.c=.o)
 
-all : $(LIBFT) $(NAME)
+all : $(LIBFT) $(MLX) $(NAME)
 
 $(LIBFT):
 		$(MAKE) -C $(LIBFT_DIR)
+
+$(MLX):
+		$(MAKE) -C $(MLX_DIR)
 
 $(NAME) : $(OBJ)
 		$(CC) $(OBJ) $(LDFLAGS) -o $(NAME) $(LIBFT) $(INCLUDES)
@@ -24,6 +29,7 @@ $(NAME) : $(OBJ)
 
 clean :
 		$(MAKE) -C $(LIBFT_DIR) clean
+		$(MAKE) -C $(MLX_DIR) clean
 		rm -f $(OBJ)
 
 fclean : clean
